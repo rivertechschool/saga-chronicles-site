@@ -1,0 +1,125 @@
+/* Saga Chronicles — landing */
+
+:root {
+  --bg: #0e0c0a;
+  --bg-soft: #15110d;
+  --ink: #e8dfce;
+  --ink-soft: #b8ad97;
+  --accent: #d4a55c;
+  --rule: #2a2218;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+.hero-image {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Soft vignette so the image fades into the page */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(14, 12, 10, 0.45) 100%),
+    linear-gradient(to bottom, transparent 70%, var(--bg) 100%);
+}
+
+.title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 64px);
+  letter-spacing: 0.02em;
+  margin-top: 36px;
+  color: var(--ink);
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 20px auto 0;
+  opacity: 0.7;
+}
+
+/* Prose */
+.prose {
+  padding: 32px 0 64px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.prose p {
+  margin-bottom: 1.4em;
+}
+
+.prose p:first-of-type::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.9;
+  padding: 6px 10px 0 0;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 2em;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 0 18px; }
+  .hero { padding: 32px 0 16px; }
+  .prose { font-size: 18px; padding: 20px 0 48px; }
+  .prose p:first-of-type::first-letter {
+    font-size: 2.8em;
+  }
+}
